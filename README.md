@@ -10,7 +10,6 @@ A 2D arcade-style game built with Python and Pygame, featuring dynamic upgrades,
 - [Controls](#controls)
 - [File Structure](#file-structure)
 - [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -37,6 +36,41 @@ A 2D arcade-style game built with Python and Pygame, featuring dynamic upgrades,
 3. Run the Game
    ```bash
    python michaelvtoby.py
+
+## Gameplay
+
+The player controls Michael Scott, who must bounce a ball to break blocks. Collect upgrades to enhance abilities and avoid losing all hearts.
+
+### Upgrades:
+- **Michael Running**: Increases speed.
+- **Holly**: Adds an extra life.
+- **Kevin's Chili**: Increases paddle size.
+- **Toby's Hand**: Resets size, speed, and removes a life.
+
+---
+
+## Controls
+
+- **Left Arrow**: Move left.
+- **Right Arrow**: Move right.
+- **Spacebar**: Launch the ball.
+
+---
+
+## File Structure
+
+- `michaelvtoby.py`: Main game logic.
+- `settings.py`: Configuration and level generation.
+- `sprites.py`: Sprite classes (Player, Ball, Block, Upgrade).
+- `graphics/`: Contains all assets (player images, blocks, backgrounds, and upgrades).
+
+---
+
+## Contributing
+
+Contributions are welcome! Feel free to submit a pull request or open an issue for suggestions and bug reports.
+
+---
 
 
 
