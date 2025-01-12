@@ -1,6 +1,6 @@
 # No_God_Please_NO
 
-A 2D arcade-style game developed using Python and Pygame. The game features dynamic upgrades, block-breaking mechanics, and exciting gameplay inspired by classic arcade games.
+A 2D arcade-style game built with Python and Pygame, featuring dynamic upgrades, block-breaking mechanics, and exciting gameplay inspired by classic arcade games. I started this as a fun side project and plan to enhance it with sounds, additional power-ups, and other exciting features as I get time.
 
 ## Table of Contents
 
@@ -29,5 +29,16 @@ A 2D arcade-style game developed using Python and Pygame. The game features dyna
 1. Clone this repository:
    ```bash
    git clone https://github.com/your-username/No_God_Please_NO.git
+   
+2. Install Pygames
+   ```bash
+   pip install pygame
+
+3. Run the Game
+   ```bash
+   python michaelvtoby.py
+
+
+
 
 
