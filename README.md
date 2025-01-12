@@ -1,6 +1,6 @@
 # No_God_Please_NO
 
-![image](https://github.com/user-attachments/assets/efdb05ae-867b-40ab-b502-7391cf3ad044)
+![image](https://github.com/user-attachments/assets/96d7bf12-e4f9-4c15-8772-4c84937085f2)
 
 
 A 2D arcade-style game built with Python and Pygame, featuring dynamic upgrades, block-breaking mechanics, and exciting gameplay inspired by classic arcade games. I started this as a fun side project and plan to enhance it with sounds, additional power-ups, and other exciting features as I get time.
