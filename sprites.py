@@ -2,13 +2,17 @@ import pygame
 from pygame.sprite import AbstractGroup
 from settings import *
 from random import choice,randint
+import os
 
 class Upgrade(pygame.sprite.Sprite):
     def __init__(self,pos,upgrade_type,groups):
         super().__init__(*groups)
         self.upgrade_type = upgrade_type
         gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        self.image = pygame.image.load('.\\graphics\\upgrades\\'+ self.upgrade_type+".png").convert_alpha(gameDisplay)
+
+        #os.path.join('graphics', 'upgrades',self.upgrade_type+".png")
+        self.image = pygame.image.load(os.path.join('graphics', 'upgrades',self.upgrade_type+".png")).convert_alpha(gameDisplay)
+        #self.image = pygame.image.load('.\\graphics\\upgrades\\'+ self.upgrade_type+".png").convert_alpha(gameDisplay)
         self.rect = self.image.get_rect(midtop = pos)
 
         self.pos = pygame.math.Vector2(self.rect.topleft)
@@ -30,7 +34,9 @@ class Player(pygame.sprite.Sprite):
         #self.image = pygame.Surface((WINDOW_WIDTH//10,WINDOW_HEIGHT//20))
         import PIL
         gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        self.player_img = pygame.image.load('.\\graphics\\other\\Michael.png').convert_alpha(gameDisplay)
+        #os.path.join('graphics', 'other','Michael.png')
+        self.player_img = pygame.image.load(os.path.join('graphics', 'other','Michael.png')).convert_alpha(gameDisplay)
+        #self.player_img = pygame.image.load('.\\graphics\\other\\Michael.png').convert_alpha(gameDisplay)
         self.scaled_player_img = pygame.transform.scale(self.player_img, (WINDOW_WIDTH//6, WINDOW_HEIGHT//8))
         self.image = self.scaled_player_img
         #self.image.fill('red')
@@ -87,7 +93,8 @@ class Player(pygame.sprite.Sprite):
         if upgrade_type == 'kevin_chilly':
             if self.size_level == 1:
                 gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-                self.player_img = pygame.image.load('.\\graphics\\other\\Michael_kevin_size1.png').convert_alpha(gameDisplay)
+                #os.path.join('graphics', 'other','Michael_kevin_size1.png')
+                self.player_img = pygame.image.load(os.path.join('graphics', 'other','Michael_kevin_size1.png')).convert_alpha(gameDisplay)
                 self.scaled_player_img = pygame.transform.scale(self.player_img, (int((WINDOW_WIDTH*1.3//6)), int((WINDOW_HEIGHT//8))))
                 self.image = self.scaled_player_img
                 self.rect = self.image.get_rect(center = self.rect.center)
@@ -96,7 +103,8 @@ class Player(pygame.sprite.Sprite):
                 
             elif self.size_level == 2:
                 gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-                self.player_img = pygame.image.load('.\\graphics\\other\\Michael_kevin_size2.png').convert_alpha(gameDisplay)
+                #os.path.join('graphics', 'other','Michael_kevin_size2.png')
+                self.player_img = pygame.image.load(os.path.join('graphics','other','Michael_kevin_size2.png')).convert_alpha(gameDisplay)
                 self.scaled_player_img = pygame.transform.scale(self.player_img, (int((WINDOW_WIDTH*1.5//6)), int((WINDOW_HEIGHT//8))))
                 self.image = self.scaled_player_img
                 self.rect = self.image.get_rect(center = self.rect.center)
@@ -108,7 +116,8 @@ class Player(pygame.sprite.Sprite):
         
         if upgrade_type == 'toby_hand':
             gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-            self.player_img = pygame.image.load('.\\graphics\\other\\Michael.png').convert_alpha(gameDisplay)
+            #os.path.join('graphics', 'other','Michael.png')
+            self.player_img = pygame.image.load(os.path.join('graphics', 'other','Michael.png')).convert_alpha(gameDisplay)
             self.scaled_player_img = pygame.transform.scale(self.player_img, (WINDOW_WIDTH//6, WINDOW_HEIGHT//8))
             self.image = self.scaled_player_img
             self.rect = self.image.get_rect(center = self.rect.center)
@@ -132,7 +141,8 @@ class Ball(pygame.sprite.Sprite):
         self.blocks = blocks
 
         gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        self.ball_img = pygame.image.load('.\\graphics\\other\\suck_on_this_withoutback_small.png').convert_alpha(gameDisplay)
+        os.path.join('graphics', 'other','suck_on_this_withoutback_small.png')
+        self.ball_img = pygame.image.load(os.path.join('graphics', 'other','suck_on_this_withoutback_small.png')).convert_alpha(gameDisplay)
         self.scaled_ball_img = pygame.transform.scale(self.ball_img, (WINDOW_WIDTH//35, WINDOW_HEIGHT//20))
         self.image = self.scaled_ball_img
 
@@ -168,7 +178,8 @@ class Ball(pygame.sprite.Sprite):
                 self.direction.y = -1 * self.direction.y
                 self.player.hearts -=1
                 gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-                self.player.player_img = pygame.image.load('.\\graphics\\other\\Michael.png').convert_alpha(gameDisplay)
+                os.path.join('graphics', 'other','Michael.png')
+                self.player.player_img = pygame.image.load(os.path.join('graphics', 'other','Michael.png')).convert_alpha(gameDisplay)
                 self.player.scaled_player_img = pygame.transform.scale(self.player.player_img, (WINDOW_WIDTH//6, WINDOW_HEIGHT//8))
                 self.player.image = self.player.scaled_player_img
                 self.player.rect = self.player.image.get_rect(center = self.player.rect.center)
@@ -251,7 +262,10 @@ class Block(pygame.sprite.Sprite):
         super().__init__(groups)
         gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         self.img = BLOCK_LEGEND[block_type]
-        self.block_img = pygame.image.load('.\\graphics\\blocks\\'+self.img).convert_alpha(gameDisplay)
+        os.path.join('graphics', 'blocks',self.img)
+        os.path.join('graphics', 'blocks',self.img)
+        self.block_img = pygame.image.load(os.path.join('graphics', 'blocks',self.img)).convert_alpha(gameDisplay)
+        #self.block_img = pygame.image.load('.\\graphics\\blocks\\'+self.img).convert_alpha(gameDisplay)
         #self.block_img = pygame.image.load('.\\graphics\\blocks\\'+self.img).convert()
         self.scaled_ball_img = pygame.transform.scale(self.block_img, (BLOCK_WIDTH,BLOCK_HEIGHT))
         self.image = self.scaled_ball_img
@@ -267,7 +281,7 @@ class Block(pygame.sprite.Sprite):
             #update the image
             gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
             self.img = BLOCK_LEGEND[str(self.health)]
-            self.block_img = pygame.image.load('.\\graphics\\blocks\\'+self.img).convert_alpha(gameDisplay)
+            self.block_img = pygame.image.load(os.path.join('graphics', 'blocks',self.img)).convert_alpha(gameDisplay)
             #self.block_img = pygame.image.load('.\\graphics\\blocks\\'+self.img).convert()
             self.scaled_ball_img = pygame.transform.scale(self.block_img, (BLOCK_WIDTH,BLOCK_HEIGHT))
             self.image = self.scaled_ball_img

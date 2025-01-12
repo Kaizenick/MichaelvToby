@@ -4,6 +4,7 @@ import time
 from settings import *
 from sprites import Player, Ball, Block, Upgrade
 from random import choice
+import os
 
 
 class Game:
@@ -25,7 +26,10 @@ class Game:
 
         # hearts
         gameDisplay = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        self.heart_surf = pygame.image.load('.\\graphics\\other\\PrisonMike_nobg_b.png').convert_alpha(gameDisplay)
+
+        #os.path.join('graphics', 'other', 'PrisonMike_nobg_b.png')
+        self.heart_surf = pygame.image.load(os.path.join('graphics', 'other', 'PrisonMike_nobg_b.png')).convert_alpha(gameDisplay)
+        #self.heart_surf = pygame.image.load('.\\graphics\\other\\PrisonMike_nobg_b.png').convert_alpha(gameDisplay)
         self.scaled_heart_surf = pygame.transform.scale(self.heart_surf, (BLOCK_WIDTH//4,BLOCK_HEIGHT//2.5))
         self.image = self.scaled_heart_surf
 
@@ -35,7 +39,10 @@ class Game:
 
     def create_bg(self):
         
-        bg_original = pygame.image.load('.\\graphics\\other\\background.png').convert()
+        bg_path = os.path.join('graphics', 'other', 'background.png')
+        bg_original = pygame.image.load(bg_path).convert()
+
+        #bg_original = pygame.image.load('.\\graphics\\other\\background.png').convert()
         scaled_bg = pygame.transform.scale(bg_original, (WINDOW_WIDTH, WINDOW_HEIGHT))
 
         return (scaled_bg)
